@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql:///leyou
+    username: root
+    password: 15874473705hyw
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+mybatis: #扫描pojo包
+  type-aliases-package: com.leyou.item.pojo
+  configuration: #配置SQL语句打印操作
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

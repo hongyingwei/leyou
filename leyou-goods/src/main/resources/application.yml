@@ -1,0 +1,15 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: goods-service
+  thymeleaf:
+    cache: false  #关掉thymeleaf的模版缓存
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/
+    registry-fetch-interval-seconds: 5  #拉取服务时间
+  instance:
+    lease-expiration-duration-in-seconds: 10 # 微服务重连时间
+    lease-renewal-interval-in-seconds: 5 # 心跳时间
