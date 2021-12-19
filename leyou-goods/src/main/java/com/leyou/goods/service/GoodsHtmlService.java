@@ -31,6 +31,7 @@ public class GoodsHtmlService {
 
     /**
      * 输出静态页面，然后存在nginx的HTML文件夹，便于快速访问thymeleaf加载的页面
+     *
      * @param spuId
      */
     public void createHtml(Long spuId){
