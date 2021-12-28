@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author HYW
+ * @author 商品分类信息管理
  * @description
  */
 @RestController
