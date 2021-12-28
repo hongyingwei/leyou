@@ -53,7 +53,7 @@ public class BrandController {
     }
 
     /**
-     * 新增加品牌
+     * 新增加品牌信息
      * @param brand
      * @param cids
      * @return
