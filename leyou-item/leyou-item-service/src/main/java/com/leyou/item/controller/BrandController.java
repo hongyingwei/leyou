@@ -26,7 +26,7 @@ public class BrandController {
     /**
      * 根据查询条件分页并排序查询品牌信息
      * （不足之处）：
-     * 当前：key作为模糊匹配搜索
+     * 当前：key作为模糊匹配搜索的关键字
      * 改进：可以用Elasticsearch全文检索
      *
      * @param key
