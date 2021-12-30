@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author sku和spu信息管理
+ * @author sku和spu信息
  * @description
  */
 @Controller
