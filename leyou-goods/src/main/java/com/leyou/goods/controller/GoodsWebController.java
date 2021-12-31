@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Map;
 
 /**
- * @author
+ * @author 商品管理信息
  * @description
  */
 @Controller
