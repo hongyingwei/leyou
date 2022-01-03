@@ -22,7 +22,7 @@ public class SearchController {
 
     /**
      * 搜索商品
-     *
+     * 通过ElasticSearch进行全文检索
      * @param request
      * @return
      */
