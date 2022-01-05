@@ -22,14 +22,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author
- * @description
+ * @author HYW
+ * @description上传文件到远端的FastDFS
  */
 @Service
 @Slf4j
 @EnableConfigurationProperties(UploadProperties.class)
 public class UploadService {
-    //fastDFS的文件存储操作
+    //fastDFS的文件存储操作（fastDFS小型文件系统）
     @Autowired
     private FastFileStorageClient storageClient;
 
