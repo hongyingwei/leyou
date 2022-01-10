@@ -51,6 +51,7 @@ public class SearchService {
     //json工具
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
+    //构建Elasticsearch搜索库
     public Goods buildGoods(Spu spu) throws IOException {
 
         // 创建goods对象
