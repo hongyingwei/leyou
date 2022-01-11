@@ -6,6 +6,9 @@ import com.leyou.item.pojo.Brand;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 搜索返回的结果
+ */
 public class SearchResult extends PageResult<Goods> {
     
     private List<Map<String, Object>> categories;

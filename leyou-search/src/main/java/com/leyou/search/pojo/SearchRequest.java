@@ -2,6 +2,9 @@ package com.leyou.search.pojo;
 
 import java.util.Map;
 
+/**
+ * 搜索请求的参数封装类
+ */
 public class SearchRequest {
     private String key;// 搜索条件
 

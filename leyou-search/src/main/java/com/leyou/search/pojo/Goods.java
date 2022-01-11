@@ -10,6 +10,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 商品实体类
+ */
 @Document(indexName = "goods", type = "docs", shards = 1, replicas = 0)
 public class Goods {
     @Id
