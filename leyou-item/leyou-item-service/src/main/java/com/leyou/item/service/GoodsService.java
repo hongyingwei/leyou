@@ -11,6 +11,8 @@ import com.leyou.item.mapper.SpuMapper;
 import com.leyou.item.mapper.StockMapper;
 import com.leyou.item.pojo.*;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.amqp.AmqpException;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,6 +48,9 @@ public class GoodsService {
 
     @Autowired
     private StockMapper stockMapper;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
     /**
      * 分页查询商品信息spu
      *
@@ -131,7 +136,23 @@ public class GoodsService {
 
         //新增sku和库存
         saveSkuAndStock(spu);
+
+        sendMsg("insert", spu.getId());
     }
+
+    /**
+     * rabbitmq发送消息
+     * @param type
+     * @param id
+     */
+    private void sendMsg(String type, Long id) {
+        try {
+            this.amqpTemplate.convertAndSend("item." + type, id);
+        } catch (AmqpException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 新增sku和库存
      * @param spu
@@ -247,6 +268,8 @@ public class GoodsService {
 
         //新增sku和stock
         saveSkuAndStock(spu);
+
+        sendMsg("update", spu.getId());
     }
 
     /**
@@ -270,6 +293,8 @@ public class GoodsService {
             sku.setEnable(false);
             this.skuMapper.updateByPrimaryKeySelective(sku);
         });
+
+        sendMsg("delete", spu.getId());
     }
 
     /**
