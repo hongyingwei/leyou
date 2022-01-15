@@ -299,4 +299,26 @@ public class SearchService {
             return map;
         }).collect(Collectors.toList());
     }
+
+    /**
+     * 创建商品的索引库索引
+     * @param id
+     * @throws IOException
+     */
+    public void createIndex(Long id) throws IOException {
+        Spu spu = this.goodsClient.querySpuById(id);
+        //构建商品
+        Goods goods = this.buildGoods(spu);
+        //保存数据到索引库
+        this.goodsRepository.save(goods);
+    }
+
+    /**
+     * 通过id删除索引
+     * @param id
+     * @throws IOException
+     */
+    public void deleteIndex(Long id) throws IOException {
+        this.goodsRepository.deleteById(id);
+    }
 }

@@ -1,6 +1,6 @@
-package com.leyou.goods.listener;
+package com.leyou.search.listener;
 
-import com.leyou.goods.service.GoodsHtmlService;
+import com.leyou.search.service.SearchService;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
@@ -16,37 +16,40 @@ import org.springframework.stereotype.Component;
 @Component
 public class GoodsListener {
     @Autowired
-    private GoodsHtmlService goodsHtmlService;
+    private SearchService searchService;
 
     /**
      * 处理insert和update的消息
      * @param id
+     * @throws Exception
      */
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "leyou.item.save.queue", durable = "true"),
+            value = @Queue(value = "leyou.search.create.queue", durable = "true"),
             exchange = @Exchange(value = "leyou.item.exchange", ignoreDeclarationExceptions = "true",
             type = ExchangeTypes.TOPIC),
             key = {"item.insert", "item.update"}
-            ))
-    public void listenerSaveAndUpdate(Long id){
+    ))
+    public void listenCreate(Long id) throws Exception {
         if(id == null)
             return;
-        this.goodsHtmlService.createHtml(id);
+        //创建活更新索引
+        this.searchService.createIndex(id);
     }
 
     /**
-     * 处理delete消息
+     * 处理delete的消息
      * @param id
      */
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "leyou.item.index.queue", durable = "true"),
+            value = @Queue(value = "leyou.search.delete.queue", durable = "true"),
             exchange = @Exchange(value = "leyou.item.exchange", ignoreDeclarationExceptions = "true",
             type = ExchangeTypes.TOPIC),
             key = "item.delete"
     ))
-    public void listenDelete(Long id){
+    public void listenDelete(Long id) throws Exception{
         if(id == null)
             return;
-        this.goodsHtmlService.deleteHtml(id);
+        //删除索引
+        this.searchService.deleteIndex(id);
     }
 }
