@@ -10,7 +10,7 @@ spring:
   rabbitmq:
     host: 192.168.217.128
     virtual-host: /leyou
-    username: hyw
+    username: leyou
     password: 123456
     template: # 默认交换机
       exchange: leyou.item.exchange
