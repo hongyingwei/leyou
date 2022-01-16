@@ -9,6 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="leyou-item-interface" />
         <module name="leyou-upload" />
+        <module name="leyou-user-interface" />
+        <module name="leyou-user-service" />
         <module name="leyou-search" />
         <module name="leyou-gateway" />
         <module name="leyou-goods" />
@@ -30,6 +32,9 @@
       <module name="leyou-registry" options="-parameters" />
       <module name="leyou-search" options="-parameters" />
       <module name="leyou-upload" options="-parameters" />
+      <module name="leyou-user" options="-parameters" />
+      <module name="leyou-user-interface" options="-parameters" />
+      <module name="leyou-user-service" options="-parameters" />
     </option>
   </component>
 </project>

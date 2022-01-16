@@ -12,6 +12,10 @@
     <file url="file://$PROJECT_DIR$/leyou-registry/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-search/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-upload/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-user/leyou-user-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-user/leyou-user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-user/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
