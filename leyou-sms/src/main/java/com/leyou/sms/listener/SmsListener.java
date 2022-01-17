@@ -15,6 +15,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+/**
+ * 监听短信队列
+ */
 @Component
 @EnableConfigurationProperties(SmsProperties.class)
 public class SmsListener {
