@@ -16,8 +16,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Component;
 
 /**
- * @author
- * @description
+ * @author hyw
+ * @description 配置短信服务的信息
  */
 @Component
 @EnableConfigurationProperties(SmsProperties.class)
