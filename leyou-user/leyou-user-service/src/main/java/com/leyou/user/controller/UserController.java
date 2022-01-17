@@ -2,17 +2,15 @@ package com.leyou.user.controller;
 
 
 import com.leyou.user.service.UserService;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author
- * @description
+ * @author hyw
+ * @description 用户操作服务
  */
 @RestController
 public class UserController {

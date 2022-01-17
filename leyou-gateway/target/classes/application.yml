@@ -14,3 +14,4 @@ zuul:
     item-service: /item/** #路由到商品的微服务
     search-service: /search/** #路由到搜素微服务
     goods-service: /goods/** # 商品展示微服务
+    user-service: /user/** # 用户微服务

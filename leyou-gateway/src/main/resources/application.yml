@@ -15,3 +15,4 @@ zuul:
     search-service: /search/** #路由到搜素微服务
     goods-service: /goods/** # 商品展示微服务
     user-service: /user/** # 用户微服务
+    sms-service: /sms/** #短信微服务

@@ -2,7 +2,7 @@ server:
   port: 8085
 spring:
   application:
-    name: user-serivce
+    name: user-service
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/leyou
     username: root
@@ -11,7 +11,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:10086/eureka
+      defaultZone: http://localhost:10086/eureka/
   instance:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 15
