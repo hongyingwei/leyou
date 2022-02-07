@@ -10,8 +10,8 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * @author
- * @description
+ * @author hyw
+ * @description 用户微服务
  */
 @Table(name = "tb_user")
 @Data
