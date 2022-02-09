@@ -32,7 +32,7 @@ public class RedisTest {
     public void testRedis2() {
         // 存储数据，并指定剩余生命时间,5小时
         this.redisTemplate.opsForValue().set("key2", "value2",
-                5, TimeUnit.HOURS);
+                60, TimeUnit.SECONDS);
     }
 
     @Test

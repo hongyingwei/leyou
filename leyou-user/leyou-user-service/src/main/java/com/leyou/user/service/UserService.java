@@ -61,7 +61,7 @@ public class UserService {
      * @param phone
      * @return
      */
-    public boolean sendVerifyCode(String phone){
+    public Boolean sendVerifyCode(String phone){
         //1、生成验证码
         String code = NumberUtils.generateCode(6);
 
