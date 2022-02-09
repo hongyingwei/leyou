@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * @author hyw
  * @description 用户操作服务
@@ -53,11 +55,29 @@ public class UserController {
      * @return
      */
     @PostMapping("register")
-    public ResponseEntity<Void> register(User user, @RequestParam("code") String code){
+    public ResponseEntity<Void> register(@Valid User user, @RequestParam("code") String code){
         Boolean boo = this.userService.register(user, code);
         if(boo == null || !boo){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    /**
+     * 根据用户名和密码查询用户
+     * @param username
+     * @param password
+     * @return
+     */
+    @GetMapping("query")
+    public ResponseEntity<User> queryUser(
+            @RequestParam("username") String username,
+            @RequestParam("password") String password
+    ) {
+        User user = this.userService.queryUser(username, password);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.ok(user);
     }
 }
