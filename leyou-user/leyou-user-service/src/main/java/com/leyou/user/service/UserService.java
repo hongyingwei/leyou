@@ -1,8 +1,10 @@
 package com.leyou.user.service;
 
+import com.leyou.common.utils.CodecUtils;
 import com.leyou.common.utils.NumberUtils;
 import com.leyou.user.mapper.UserMapper;
 import com.leyou.user.pojo.User;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -79,5 +82,34 @@ public class UserService {
             logger.error("发送短信失败。phone：{}， code：{}", phone, code);
             return false;
         }
+    }
+
+    /**
+     * 发送短信
+     * @param user
+     * @param code
+     * @return
+     */
+    public Boolean register(User user, String code) {
+        //1、效验短信验证码
+        String cacheCode = this.redisTemplate.opsForValue().get(KEY_PREFIX + user.getPhone());
+        if(!StringUtils.equals(cacheCode, code)){
+            return false;
+        }
+
+        //2、生成盐
+        String salt = CodecUtils.generateSalt();
+        user.setSalt(salt);
+        //3、对密码加盐
+        user.setPassword(CodecUtils.md5Hex(user.getPassword(), salt));
+        //4、添加数据库
+        user.setId(null);
+        user.setCreated(new Date());
+
+        boolean boo = this.userMapper.insertSelective(user) == 1;
+        if(boo){
+            this.redisTemplate.delete(KEY_PREFIX + user.getPhone());
+        }
+        return boo;
     }
 }
