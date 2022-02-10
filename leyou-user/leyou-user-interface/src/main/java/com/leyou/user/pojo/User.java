@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * @author hyw
- * @description 用户微服务
+ * @description 用户微服务（利用hibernate-validate对数据模型进行属性效验）
  */
 @Table(name = "tb_user")
 @Data
