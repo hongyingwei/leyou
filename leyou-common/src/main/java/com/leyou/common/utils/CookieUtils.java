@@ -52,7 +52,9 @@ public final class CookieUtils {
 				}
 			}
 		} catch (UnsupportedEncodingException e) {
-			log.error("Cookie Decode Error.", e);
+			//log.error("Cookie Decode Error.", e);
+
+
 		}
 		return retValue;
 	}
@@ -114,7 +116,7 @@ public final class CookieUtils {
 				cookie.setHttpOnly(httpOnly);
 				response.addCookie(cookie);
 			} catch (Exception e) {
-				log.error("Cookie Encode Error.", e);
+				//log.error("Cookie Encode Error.", e);
 			}
 		}
 
