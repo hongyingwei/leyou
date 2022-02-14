@@ -1,6 +1,6 @@
 package com.leyou.utils;
 
-import com.leyou.auth.entiy.UserInfo;
+import com.leyou.entiy.UserInfo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
