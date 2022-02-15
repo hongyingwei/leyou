@@ -2,6 +2,9 @@ package com.leyou.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * 对象操作的工具类
+ */
 public class ObjectUtils {
 
     public static String toString(Object obj) {
