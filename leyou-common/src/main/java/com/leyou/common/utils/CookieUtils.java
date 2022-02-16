@@ -1,6 +1,5 @@
 package com.leyou.common.utils;
 
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -10,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.logging.Logger;
-
 /**
  * Cookie 工具类
  */
@@ -54,7 +51,7 @@ public final class CookieUtils {
 				}
 			}
 		} catch (UnsupportedEncodingException e) {
-//			log.error("Cookie Decode Error.", e);
+			log.error("Cookie Decode Error.", e);
 		}
 		return retValue;
 	}
@@ -116,7 +113,7 @@ public final class CookieUtils {
 				cookie.setHttpOnly(httpOnly);
 				response.addCookie(cookie);
 			} catch (Exception e) {
-				//log.error("Cookie Encode Error.", e);
+				log.error("Cookie Encode Error.", e);
 			}
 		}
 
