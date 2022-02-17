@@ -61,10 +61,15 @@ public class AuthController {
      * @return
      */
     @GetMapping("verify")
-    public ResponseEntity<UserInfo> verifyUser(@CookieValue("LY_TOKEN")String token){
+    public ResponseEntity<UserInfo> verifyUser(@CookieValue("LY_TOKEN")String token, HttpServletRequest request, HttpServletResponse response){
         try {
             // 从token中解析token信息
             UserInfo userInfo = JwtUtils.getInfoFromToken(token, this.prop.getPublicKey());
+            // 解析成功要重新刷新token
+            token = JwtUtils.generateToken(userInfo, this.prop.getPrivateKey(), this.prop.getExpire());
+            // 更新cookie中的token
+            CookieUtils.newBuilder(response).httpOnly().request(request).build(prop.getCookieName(), token);
+
             // 解析成功返回用户信息
             return ResponseEntity.ok(userInfo);
         } catch (Exception e) {
