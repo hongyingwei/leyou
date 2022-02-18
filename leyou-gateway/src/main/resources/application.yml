@@ -23,3 +23,11 @@ leyou:
   jwt:
     pubKeyPath:  C:\\tmp\\rsa\\rsa.pub # 公钥地址
     cookieName: LY_TOKEN # cookie的名称
+  filter: # 白名单
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
