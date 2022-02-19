@@ -18,6 +18,7 @@ zuul:
     sms-service: /sms/** #短信微服务
     auth-service: /auth/** # 授权中心微服务
     cart-service: /cart/** # 购物车微服务
+    order-service: /order/** # 订单微服务
 
 
 leyou:
