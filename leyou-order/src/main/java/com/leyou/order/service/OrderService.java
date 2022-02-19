@@ -2,9 +2,9 @@ package com.leyou.order.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.leyou.auth.entity.UserInfo;
 import com.leyou.common.pojo.PageResult;
 import com.leyou.common.utils.IdWorker;
+import com.leyou.entiy.UserInfo;
 import com.leyou.order.interceptor.LoginInterceptor;
 import com.leyou.order.mapper.OrderDetailMapper;
 import com.leyou.order.mapper.OrderMapper;

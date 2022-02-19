@@ -1,9 +1,9 @@
 package com.leyou.order.interceptor;
 
-import com.leyou.auth.pojo.UserInfo;
-import com.leyou.auth.utils.JwtUtils;
 import com.leyou.common.utils.CookieUtils;
 import com.leyou.config.JwtProperties;
+import com.leyou.entiy.UserInfo;
+import com.leyou.utils.JwtUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
